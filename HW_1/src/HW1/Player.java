@@ -47,10 +47,39 @@ public class Player extends Character {
 	
 	
 	public boolean hasMagicItem() {
-		
+		for(int i = 0; i < inventory.length; i++) {
+			 if(inventory[i] != null) {
+				 String n = inventory[i].getName();
+				 if(n != null) {
+					 String s = n.toLowerCase();	
+					 if(s.contains("magic") || s.contains("magical")) {
+						 return true;
+					 }
+				 }
+			 }
+		}
+		 return false;
+
 	}
 	
+	//function to diffrintiat 
+	public String buildInventory() {
+		StringBuilder sb = new StringBuilder();
+		for(int i = 0; i < inventory.length; i++ ) {
+			if(inventory[i] == null) {
+				if(sb.length() > 0) sb.append("|"); //parts each item with "|"
+				sb.append(inventory[i].getName());
+			}
+		}
+		return sb.toString();
+	}
 	
+@Override	
+public String toString() {
+	String invStr = buildInventory();
+	return super.toString() + "\n" + 
+			"Inventory : " + (invStr.isEmpty() ? "-" : invStr);
+}
 	
 	
 	
