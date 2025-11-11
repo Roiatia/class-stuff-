@@ -74,6 +74,25 @@ public class Player extends Character {
 		return sb.toString();
 	}
 	
+	public String getName() {
+		return name;
+	}
+	
+	//set name
+	public void setName() {
+		this.name = name;
+	}
+	
+	
+	public int getLevel() {
+		return level;
+	}
+	
+	//set level
+	public void setLevel() {
+		this.level = level;
+	}
+	
 @Override	
 public String toString() {
 	String invStr = buildInventory();
